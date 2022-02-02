@@ -40,10 +40,17 @@ public class CamisetasFormController implements Initializable {
 	@FXML
 	private TextField txtQuantity;
 	
-	@FXML TextField txtPrice;
+	@FXML
+	private TextField txtPrice;
 	
 	@FXML
 	private Label labelErrorName;
+	
+	@FXML
+	private Label labelErrorQuantity;
+	
+	@FXML
+	private Label labelErrorPrice;
 	
 	@FXML
 	private Button btSave;
@@ -103,6 +110,16 @@ public class CamisetasFormController implements Initializable {
 		}
 		obj.setName(txtName.getText());
 		
+		if(txtQuantity.getText() == null || txtQuantity.getText().trim().equals("")) {
+			exception.addError("quantidade", "Campo não pode ser vazio");
+		}
+		obj.setQuantidade(Utils.tryParseToInt(txtQuantity.getText()));
+		
+		if(txtPrice.getText() == null || txtPrice.getText().trim().equals("")) {
+			exception.addError("preco", "Campo não pode ser vazio");
+		}
+		obj.setPrice(Utils.tryParseToDouble(txtPrice.getText()));
+		
 		if(exception.getErrors().size() > 0) {
 			throw exception;
 		}
@@ -136,9 +153,9 @@ public class CamisetasFormController implements Initializable {
 	private void setErrorMenssages(Map<String, String> errors){
 		Set<String> fields = errors.keySet();
 		
-		if (fields.contains("name")) {
-			labelErrorName.setText(errors.get("name"));
-		}
+		labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
+		labelErrorQuantity.setText((fields.contains("quantidade") ? errors.get("quantidade") : ""));
+		labelErrorPrice.setText((fields.contains("preco") ? errors.get("preco") : ""));
 	}
 	
 }

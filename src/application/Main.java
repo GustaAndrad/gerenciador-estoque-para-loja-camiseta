@@ -23,7 +23,7 @@ public class Main extends Application {
 			
 			mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
-			primaryStage.setTitle("Neat Camisetas estoque");
+			primaryStage.setTitle("Estoque Neat Camisetas");
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
