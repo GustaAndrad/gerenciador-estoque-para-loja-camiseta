@@ -118,7 +118,7 @@ public class CamisetasFormController implements Initializable {
 		if(txtPrice.getText() == null || txtPrice.getText().trim().equals("")) {
 			exception.addError("preco", "Campo não pode ser vazio");
 		}
-		obj.setPrice(Utils.tryParseToDouble(txtPrice.getText()));
+		obj.setPreco(Utils.tryParseToDouble(txtPrice.getText()));
 		
 		if(exception.getErrors().size() > 0) {
 			throw exception;

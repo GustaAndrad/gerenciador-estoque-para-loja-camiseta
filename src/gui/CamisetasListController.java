@@ -37,7 +37,7 @@ public class CamisetasListController implements Initializable, DataChangeListene
 	private CamisetasService service;
 
 	@FXML
-	private TableView<Camisetas> tableViewDepartment;
+	private TableView<Camisetas> tableViewCamisetas;
 
 	@FXML
 	private TableColumn<Camisetas, Integer> tableColumnId;
@@ -46,10 +46,10 @@ public class CamisetasListController implements Initializable, DataChangeListene
 	private TableColumn<Camisetas, String> tableColumnName;
 	
 	@FXML
-	private TableColumn<Camisetas, Integer> tableColumnQuantity;
+	private TableColumn<Camisetas, Integer> tableColumnQuantidade;
 	
 	@FXML
-	private TableColumn<Camisetas, Double> tableColumnPrice;
+	private TableColumn<Camisetas, Double> tableColumnPreco;
 
 	@FXML
 	private TableColumn<Camisetas, Camisetas> tableColumnEdit;
@@ -82,10 +82,13 @@ public class CamisetasListController implements Initializable, DataChangeListene
 
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+		tableColumnPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+		Utils.formatTableColumnDouble(tableColumnPreco, 2);
 
 		Stage stage = (Stage) Main.getMainScene().getWindow();
-		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
+		tableViewCamisetas.prefHeightProperty().bind(stage.heightProperty());
 	}
 
 	public void updateTableView() {
@@ -94,9 +97,10 @@ public class CamisetasListController implements Initializable, DataChangeListene
 		}
 		List<Camisetas> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
-		tableViewDepartment.setItems(obsList);
+		tableViewCamisetas.setItems(obsList);
 		initEditButtons();
 		initRemoveButtons();
+		initVendaButtons();
 	}
 
 	private void createDialogForm(Camisetas obj, String absoluteName, Stage parentStage) {
@@ -165,8 +169,8 @@ public class CamisetasListController implements Initializable, DataChangeListene
 	}
 	
 	private void initVendaButtons() {
-		tableColumnEdit.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		tableColumnEdit.setCellFactory(param -> new TableCell<Camisetas, Camisetas>() {
+		tableColumnVenda.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+		tableColumnVenda.setCellFactory(param -> new TableCell<Camisetas, Camisetas>() {
 			private final Button button = new Button("venda");
 
 			@Override
@@ -177,6 +181,8 @@ public class CamisetasListController implements Initializable, DataChangeListene
 					return;
 				}
 				setGraphic(button);
+				button.setOnAction(
+						event -> createDialogForm(obj, "/gui/CamisetasForm.fxml", Utils.currentStage(event)));
 			}
 		});
 	}

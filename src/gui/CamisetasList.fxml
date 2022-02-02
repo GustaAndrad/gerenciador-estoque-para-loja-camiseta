@@ -24,12 +24,12 @@
           <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" text="Nova Camiseta" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewDepartment" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableViewCamisetas" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="tableColumnQuantity" prefWidth="75.0" text="Quantidade" />
-            <TableColumn fx:id="tableColumnPrice" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="tableColumnQuantidade" prefWidth="75.0" text="Quantidade" />
+            <TableColumn fx:id="tableColumnPreco" prefWidth="75.0" text="Preço" />
             <TableColumn fx:id="tableColumnVenda" prefWidth="75.0" />
             <TableColumn fx:id="tableColumnEdit" prefWidth="75.0" />
             <TableColumn fx:id="tableColumnRemove" prefWidth="75.0" />
