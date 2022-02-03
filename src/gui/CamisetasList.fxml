@@ -26,14 +26,13 @@
       </ToolBar>
       <TableView fx:id="tableViewCamisetas" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="tableColumnQuantidade" prefWidth="75.0" text="Quantidade" />
-            <TableColumn fx:id="tableColumnPreco" prefWidth="75.0" text="Preço" />
-            <TableColumn fx:id="tableColumnValorTotal" prefWidth="75.0" text="Valor total" />
-            <TableColumn fx:id="tableColumnVenda" prefWidth="75.0" />
-            <TableColumn fx:id="tableColumnEdit" prefWidth="75.0" />
-            <TableColumn fx:id="tableColumnRemove" prefWidth="75.0" />
+          <TableColumn fx:id="tableColumnId" prefWidth="48.80004805326462" text="Id" />
+          <TableColumn fx:id="tableColumnName" prefWidth="101.59997940063477" text="Name" />
+            <TableColumn fx:id="tableColumnQuantidade" prefWidth="85.60003662109375" text="Quantidade" />
+            <TableColumn fx:id="tableColumnPreco" prefWidth="64.79991149902344" text="Preço" />
+            <TableColumn fx:id="tableColumnValorTotal" prefWidth="93.5999755859375" text="Valor total" />
+            <TableColumn fx:id="tableColumnEdit" prefWidth="63.20001220703125" />
+            <TableColumn fx:id="tableColumnRemove" prefWidth="78.39996337890625" />
         </columns>
       </TableView>
    </children>

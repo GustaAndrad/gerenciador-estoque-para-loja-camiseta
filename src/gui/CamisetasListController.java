@@ -44,13 +44,13 @@ public class CamisetasListController implements Initializable, DataChangeListene
 
 	@FXML
 	private TableColumn<Camisetas, String> tableColumnName;
-	
+
 	@FXML
 	private TableColumn<Camisetas, Integer> tableColumnQuantidade;
-	
+
 	@FXML
 	private TableColumn<Camisetas, Double> tableColumnPreco;
-	
+
 	@FXML
 	private TableColumn<Camisetas, Double> tableColumnValorTotal;
 
@@ -59,8 +59,6 @@ public class CamisetasListController implements Initializable, DataChangeListene
 
 	@FXML
 	private TableColumn<Camisetas, Camisetas> tableColumnRemove;
-	
-	@FXML TableColumn<Camisetas, Camisetas> tableColumnVenda;
 
 	@FXML
 	private Button btNew;
@@ -104,7 +102,6 @@ public class CamisetasListController implements Initializable, DataChangeListene
 		tableViewCamisetas.setItems(obsList);
 		initEditButtons();
 		initRemoveButtons();
-		initVendaButtons();
 	}
 
 	private void createDialogForm(Camisetas obj, String absoluteName, Stage parentStage) {
@@ -171,38 +168,18 @@ public class CamisetasListController implements Initializable, DataChangeListene
 			}
 		});
 	}
-	
-	private void initVendaButtons() {
-		tableColumnVenda.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		tableColumnVenda.setCellFactory(param -> new TableCell<Camisetas, Camisetas>() {
-			private final Button button = new Button("venda");
-
-			@Override
-			protected void updateItem(Camisetas obj, boolean empty) {
-				super.updateItem(obj, empty);
-				if (obj == null) {
-					setGraphic(null);
-					return;
-				}
-				setGraphic(button);
-				button.setOnAction(
-						event -> createDialogForm(obj, "/gui/CamisetasForm.fxml", Utils.currentStage(event)));
-			}
-		});
-	}
 
 	private void removeEntity(Camisetas obj) {
 		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
-		
+
 		if (result.get() == ButtonType.OK) {
 			if (service == null) {
 				throw new IllegalStateException("Service was null");
 			}
 			try {
-			service.remove(obj);
-			updateTableView();
-			}
-			catch(DbIntegrityException e) {
+				service.remove(obj);
+				updateTableView();
+			} catch (DbIntegrityException e) {
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
 		}

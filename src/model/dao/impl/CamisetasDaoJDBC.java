@@ -17,18 +17,17 @@ import model.entities.Camisetas;
 public class CamisetasDaoJDBC implements CamisetasDao {
 
 	private Connection conn;
-	
+
 	public CamisetasDaoJDBC(Connection conn) {
 		this.conn = conn;
 	}
-	
+
 	@Override
 	public Camisetas findById(Integer id) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement(
-				"SELECT * FROM camisetas WHERE Id = ?");
+			st = conn.prepareStatement("SELECT * FROM camisetas WHERE Id = ?");
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
@@ -41,11 +40,9 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				return obj;
 			}
 			return null;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		}
-		finally {
+		} finally {
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
@@ -56,8 +53,7 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement(
-				"SELECT * FROM camisetas ORDER BY Name");
+			st = conn.prepareStatement("SELECT * FROM camisetas ORDER BY Name");
 			rs = st.executeQuery();
 
 			List<Camisetas> list = new ArrayList<>();
@@ -72,11 +68,9 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				list.add(obj);
 			}
 			return list;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		}
-		finally {
+		} finally {
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
@@ -87,33 +81,29 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-				"INSERT INTO camisetas " +
-				"(Name, Quantidade, Preco) " +
-				"VALUES " +
-				"(?, ?, ?)", 
-				Statement.RETURN_GENERATED_KEYS);
+					"INSERT INTO camisetas " 
+					+ "(Name, Quantidade, Preco) " 
+					+ "VALUES " + "(?, ?, ?)",
+					Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getQuantidade());
 			st.setDouble(3, obj.getPreco());
 
 			int rowsAffected = st.executeUpdate();
-			
+
 			if (rowsAffected > 0) {
 				ResultSet rs = st.getGeneratedKeys();
 				if (rs.next()) {
 					int id = rs.getInt(1);
 					obj.setId(id);
 				}
-			}
-			else {
+			} else {
 				throw new DbException("Erro inesperado! Nenhuma linha afetada!");
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} 
-		finally {
+		} finally {
 			DB.closeStatement(st);
 		}
 	}
@@ -123,9 +113,9 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-				"UPDATE camisetas " +
-				"SET Name = ?, Quantidade = ?, Preco = ? " 
-				+"WHERE Id = ?");
+					"UPDATE camisetas " 
+					+ "SET Name = ?, Quantidade = ?, Preco = ? " 
+					+ "WHERE Id = ?");
 
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getQuantidade());
@@ -133,11 +123,9 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 			st.setInt(4, obj.getId());
 
 			st.executeUpdate();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} 
-		finally {
+		} finally {
 			DB.closeStatement(st);
 		}
 	}
@@ -146,17 +134,14 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 	public void deleteById(Integer id) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement(
-				"DELETE FROM camisetas WHERE Id = ?");
+			st = conn.prepareStatement("DELETE FROM camisetas WHERE Id = ?");
 
 			st.setInt(1, id);
 
 			st.executeUpdate();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new DbIntegrityException(e.getMessage());
-		} 
-		finally {
+		} finally {
 			DB.closeStatement(st);
 		}
 	}
