@@ -37,6 +37,7 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setName(rs.getString("Name"));
 				obj.setQuantidade(rs.getInt("Quantidade"));
 				obj.setPreco(rs.getDouble("Preco"));
+				obj.getValorTotal(rs.getDouble("ValorTotal"));
 				return obj;
 			}
 			return null;
@@ -67,6 +68,7 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setName(rs.getString("Name"));
 				obj.setQuantidade(rs.getInt("Quantidade"));
 				obj.setPreco(rs.getDouble("Preco"));
+				obj.getValorTotal(rs.getDouble("ValorTotal"));
 				list.add(obj);
 			}
 			return list;

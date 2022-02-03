@@ -30,6 +30,7 @@
           <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="tableColumnQuantidade" prefWidth="75.0" text="Quantidade" />
             <TableColumn fx:id="tableColumnPreco" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="tableColumnValorTotal" prefWidth="75.0" text="Valor total" />
             <TableColumn fx:id="tableColumnVenda" prefWidth="75.0" />
             <TableColumn fx:id="tableColumnEdit" prefWidth="75.0" />
             <TableColumn fx:id="tableColumnRemove" prefWidth="75.0" />

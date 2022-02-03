@@ -50,6 +50,9 @@ public class CamisetasListController implements Initializable, DataChangeListene
 	
 	@FXML
 	private TableColumn<Camisetas, Double> tableColumnPreco;
+	
+	@FXML
+	private TableColumn<Camisetas, Double> tableColumnValorTotal;
 
 	@FXML
 	private TableColumn<Camisetas, Camisetas> tableColumnEdit;
@@ -85,6 +88,7 @@ public class CamisetasListController implements Initializable, DataChangeListene
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
 		tableColumnPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+		tableColumnValorTotal.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 		Utils.formatTableColumnDouble(tableColumnPreco, 2);
 
 		Stage stage = (Stage) Main.getMainScene().getWindow();
