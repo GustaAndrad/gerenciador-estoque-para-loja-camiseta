@@ -10,16 +10,18 @@ public class Camisetas implements Serializable {
 	private String name;
 	private Integer quantidade;
 	private Double preco;
+	private Double precoCusto;
 
 	public Camisetas() {
 	}
 
-	public Camisetas(Integer id, String name, Integer quantidade, Double preco) {
+	public Camisetas(Integer id, String name, Integer quantidade, Double preco, Double precoCusto) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.quantidade = quantidade;
 		this.preco = preco;
+		this.precoCusto = precoCusto;
 	}
 
 	public Integer getId() {
@@ -54,12 +56,28 @@ public class Camisetas implements Serializable {
 		this.preco = preco;
 	}
 
+	public Double getPrecoCusto() {
+		return precoCusto;
+	}
+
+	public void setPrecoCusto(Double precoCusto) {
+		this.precoCusto = precoCusto;
+	}
+
 	public Double getValorTotal() {
 		return preco * quantidade;
 	}
 
 	public double getValorTotal(double double1) {
 		return preco * quantidade;
+	}
+	
+	public Double getCustoTotal() {
+		return precoCusto * quantidade;
+	}
+
+	public double getCustoTotal(double double2) {
+		return precoCusto * quantidade;
 	}
 
 	@Override

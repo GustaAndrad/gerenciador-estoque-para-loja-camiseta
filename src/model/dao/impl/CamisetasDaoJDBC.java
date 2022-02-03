@@ -36,6 +36,8 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setName(rs.getString("Name"));
 				obj.setQuantidade(rs.getInt("Quantidade"));
 				obj.setPreco(rs.getDouble("Preco"));
+				obj.setPrecoCusto(rs.getDouble("PrecoDeCusto"));
+				obj.getCustoTotal(rs.getDouble("CustoTotal"));
 				obj.getValorTotal(rs.getDouble("ValorTotal"));
 				return obj;
 			}
@@ -64,7 +66,9 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setName(rs.getString("Name"));
 				obj.setQuantidade(rs.getInt("Quantidade"));
 				obj.setPreco(rs.getDouble("Preco"));
-				obj.getValorTotal(rs.getDouble("ValorTotal"));
+				obj.setPrecoCusto(rs.getDouble("PrecoDeCusto"));
+				obj.getCustoTotal(rs.getDouble("CustoTotal"));
+				obj.getValorTotal(rs.getDouble("ValorTotal"));	
 				list.add(obj);
 			}
 			return list;
@@ -82,13 +86,14 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 		try {
 			st = conn.prepareStatement(
 					"INSERT INTO camisetas " 
-					+ "(Name, Quantidade, Preco) " 
-					+ "VALUES " + "(?, ?, ?)",
+					+ "(Name, Quantidade, Preco, PrecoDeCusto) " 
+					+ "VALUES " + "(?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getQuantidade());
 			st.setDouble(3, obj.getPreco());
+			st.setDouble(4, obj.getPrecoCusto());
 
 			int rowsAffected = st.executeUpdate();
 
@@ -114,13 +119,14 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 		try {
 			st = conn.prepareStatement(
 					"UPDATE camisetas " 
-					+ "SET Name = ?, Quantidade = ?, Preco = ? " 
+					+ "SET Name = ?, Quantidade = ?, Preco = ?, PrecoDeCusto = ? " 
 					+ "WHERE Id = ?");
 
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getQuantidade());
 			st.setDouble(3, obj.getPreco());
-			st.setInt(4, obj.getId());
+			st.setDouble(4, obj.getPrecoCusto());
+			st.setInt(5, obj.getId());
 
 			st.executeUpdate();
 		} catch (SQLException e) {
