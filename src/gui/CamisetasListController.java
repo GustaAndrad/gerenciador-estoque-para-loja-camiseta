@@ -59,7 +59,10 @@ public class CamisetasListController implements Initializable, DataChangeListene
 
 	@FXML
 	private TableColumn<Camisetas, Double> tableColumnValorTotal;
-
+	
+	@FXML
+	private TableColumn<Camisetas, Double> tableColumnLucroLiquido;
+	
 	@FXML
 	private TableColumn<Camisetas, Camisetas> tableColumnEdit;
 
@@ -95,6 +98,7 @@ public class CamisetasListController implements Initializable, DataChangeListene
 		tableColumnPrecoCusto.setCellValueFactory(new PropertyValueFactory<>("precoCusto"));
 		tableColumnValorTotal.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 		tableColumnCustoTotal.setCellValueFactory(new PropertyValueFactory<>("custoTotal"));
+		tableColumnLucroLiquido.setCellValueFactory(new PropertyValueFactory<>("lucroLiquido"));
 		Utils.formatTableColumnDouble(tableColumnPreco, 2);
 		Utils.formatTableColumnDouble(tableColumnPrecoCusto, 2);
 		Utils.formatTableColumnDouble(tableColumnValorTotal, 2);

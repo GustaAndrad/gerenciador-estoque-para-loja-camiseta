@@ -79,6 +79,14 @@ public class Camisetas implements Serializable {
 	public double getCustoTotal(double double2) {
 		return precoCusto * quantidade;
 	}
+	
+	public Double getLucroLiquido() {
+		return getValorTotal() - getCustoTotal();
+	}
+
+	public double getLucroLiquido(double double2) {
+		return getValorTotal(double2) - getCustoTotal(double2);
+	}
 
 	@Override
 	public int hashCode() {

@@ -28,11 +28,12 @@
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="48.80004805326462" text="Id" />
           <TableColumn fx:id="tableColumnName" prefWidth="101.59997940063477" text="Name" />
-            <TableColumn fx:id="tableColumnQuantidade" prefWidth="74.39999389648438" text="Quantidade" />
-            <TableColumn fx:id="tableColumnPrecoCusto" prefWidth="105.60003662109375" text="Preço de custo" />
-            <TableColumn fx:id="tableColumnPreco" prefWidth="95.99993896484375" text="Preço de venda" />
-            <TableColumn fx:id="tableColumnCustoTotal" prefWidth="91.19992065429688" text="Custo total" />
+            <TableColumn fx:id="tableColumnQuantidade" prefWidth="73.60000610351562" text="Quantidade" />
+            <TableColumn fx:id="tableColumnPrecoCusto" prefWidth="92.79998779296875" text="Preço de custo" />
+            <TableColumn fx:id="tableColumnPreco" prefWidth="98.4000244140625" text="Preço de venda" />
+            <TableColumn fx:id="tableColumnCustoTotal" prefWidth="104.79995727539062" text="Custo total" />
             <TableColumn fx:id="tableColumnValorTotal" prefWidth="80.79998779296875" text="Lucro bruto" />
+            <TableColumn fx:id="tableColumnLucroLiquido" prefWidth="80.79998779296875" text="Lucro liquido" />
             <TableColumn fx:id="tableColumnEdit" prefWidth="49.60003662109375" />
             <TableColumn fx:id="tableColumnRemove" prefWidth="78.39996337890625" />
         </columns>

@@ -39,6 +39,7 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setPrecoCusto(rs.getDouble("PrecoDeCusto"));
 				obj.getCustoTotal(rs.getDouble("CustoTotal"));
 				obj.getValorTotal(rs.getDouble("ValorTotal"));
+				obj.getLucroLiquido(rs.getDouble("LucroLiquido"));
 				return obj;
 			}
 			return null;
@@ -68,7 +69,8 @@ public class CamisetasDaoJDBC implements CamisetasDao {
 				obj.setPreco(rs.getDouble("Preco"));
 				obj.setPrecoCusto(rs.getDouble("PrecoDeCusto"));
 				obj.getCustoTotal(rs.getDouble("CustoTotal"));
-				obj.getValorTotal(rs.getDouble("ValorTotal"));	
+				obj.getValorTotal(rs.getDouble("ValorTotal"));
+				obj.getLucroLiquido(rs.getDouble("LucroLiquido"));
 				list.add(obj);
 			}
 			return list;
