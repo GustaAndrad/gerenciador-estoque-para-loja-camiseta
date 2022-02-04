@@ -44,6 +44,9 @@ public class CamisetasFormController implements Initializable {
 	private TextField txtPrice;
 	
 	@FXML
+	private TextField txtCostPrice;
+	
+	@FXML
 	private Label labelErrorName;
 	
 	@FXML
@@ -51,6 +54,9 @@ public class CamisetasFormController implements Initializable {
 	
 	@FXML
 	private Label labelErrorPrice;
+	
+	@FXML
+	private Label labelErrorCostPrice;
 	
 	@FXML
 	private Button btSave;
@@ -120,6 +126,11 @@ public class CamisetasFormController implements Initializable {
 		}
 		obj.setPreco(Utils.tryParseToDouble(txtPrice.getText()));
 		
+		if(txtCostPrice.getText() == null || txtCostPrice.getText().trim().equals("")) {
+			exception.addError("precoCusto", "Campo não pode ser vazio");
+		}
+		obj.setPrecoCusto(Utils.tryParseToDouble(txtCostPrice.getText()));
+		
 		if(exception.getErrors().size() > 0) {
 			throw exception;
 		}
@@ -140,6 +151,9 @@ public class CamisetasFormController implements Initializable {
 	private void initializeNodes() {
 		Constraints.setTextFieldInteger(txtId);
 		Constraints.setTextFieldMaxLength(txtName, 20);
+		Constraints.setTextFieldInteger(txtQuantity);
+		Constraints.setTextFieldDouble(txtPrice);
+		Constraints.setTextFieldDouble(txtCostPrice);
 	}
 	
 	public void updateFormData() {
@@ -156,6 +170,7 @@ public class CamisetasFormController implements Initializable {
 		labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
 		labelErrorQuantity.setText((fields.contains("quantidade") ? errors.get("quantidade") : ""));
 		labelErrorPrice.setText((fields.contains("preco") ? errors.get("preco") : ""));
+		labelErrorCostPrice.setText((fields.contains("precoCusto") ? errors.get("precoCusto") : ""));
 	}
 	
 }
