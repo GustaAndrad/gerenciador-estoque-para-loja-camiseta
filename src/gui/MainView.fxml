@@ -10,13 +10,15 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
 	<content>
 		
-		<VBox prefHeight="387.0" prefWidth="552.0" style="-fx-background-color: #000000;">
+		<VBox prefHeight="383.0" prefWidth="552.0" style="-fx-background-color: #000000;">
 			<children>
 				<MenuBar>
 					<menus>
@@ -33,14 +35,20 @@
 						</Menu>
 					</menus>
 				</MenuBar>
-            <Label prefHeight="62.0" prefWidth="243.0" text="Neat Camisetas" textFill="WHITE">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/gusta/Pictures/neat%20program/logopng.png" />
+               </image>
+            </ImageView>
+            <Label contentDisplay="TOP" prefHeight="11.0" prefWidth="243.0" text="\@NeatCamisetas" textFill="WHITE">
                <font>
-                  <Font size="21.0" />
+                  <Font size="10.0" />
                </font>
                <opaqueInsets>
                   <Insets left="5.0" />
                </opaqueInsets>
             </Label>
+            <Label layoutX="10.0" layoutY="203.0" prefHeight="69.0" prefWidth="78.0" />
             <Button fx:id="camisetasButton1" mnemonicParsing="false" onAction="#onBtCamisetas" prefHeight="69.0" prefWidth="236.0" style="-fx-background-color: #3e3e3e;" text="Gerenciador de estoque" textFill="WHITE">
                <opaqueInsets>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

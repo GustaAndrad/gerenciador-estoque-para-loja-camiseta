@@ -11,7 +11,7 @@
 
 <VBox prefHeight="409.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CamisetasListController">
    <children>
-      <Label text="Estoque Neat Camisetas">
+      <Label text="Estoque Neat Camisetas" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

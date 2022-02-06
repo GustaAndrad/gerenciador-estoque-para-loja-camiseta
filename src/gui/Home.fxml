@@ -6,63 +6,36 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="356.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+<VBox prefHeight="356.0" prefWidth="255.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <children>
-      <VBox prefHeight="356.0" prefWidth="234.0" style="-fx-background-color: #000000;">
-         <children>
-            <Label prefHeight="62.0" prefWidth="243.0" text="Neat Camisetas" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets left="5.0" />
-               </opaqueInsets>
-            </Label>
-            <Button fx:id="camisetasButton" mnemonicParsing="false" onAction="#onBtCamisetas" prefHeight="69.0" prefWidth="236.0" style="-fx-background-color: #3e3e3e;" text="Gerenciador de estoque" textFill="WHITE">
-               <opaqueInsets>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </opaqueInsets>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <effect>
-                  <Lighting diffuseConstant="1.12" specularConstant="0.94" specularExponent="39.08" surfaceScale="2.69">
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-            </Button>
-            <Label />
-            <Button fx:id="aboutButton" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#onBtAbout" prefHeight="69.0" prefWidth="236.0" style="-fx-background-color: #3e3e3e;" text="About" textFill="WHITE">
-               <opaqueInsets>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </opaqueInsets>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <effect>
-                  <Lighting diffuseConstant="1.12" specularConstant="0.94" specularExponent="39.08" surfaceScale="2.69">
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-            </Button>
-            <Label layoutX="10.0" layoutY="142.0" />
-         </children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/gusta/Pictures/neat%20program/logopng.png" />
+         </image>
+      </ImageView>
+      <Label contentDisplay="TOP" prefHeight="11.0" prefWidth="243.0" text="\@NeatCamisetas" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <opaqueInsets>
+            <Insets left="5.0" />
+         </opaqueInsets>
+      </Label>
+      <Label prefHeight="69.0" prefWidth="78.0" />
+      <Button fx:id="camisetasButton1" mnemonicParsing="false" onAction="#onBtCamisetas" prefHeight="69.0" prefWidth="236.0" style="-fx-background-color: #3e3e3e;" text="Gerenciador de estoque" textFill="WHITE">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
          <effect>
-            <Lighting diffuseConstant="1.24" specularConstant="0.72" specularExponent="28.07" surfaceScale="1.32">
+            <Lighting diffuseConstant="1.12" specularConstant="0.94" specularExponent="39.08" surfaceScale="2.69">
                <bumpInput>
                   <Shadow />
                </bumpInput>
@@ -71,6 +44,26 @@
                </light>
             </Lighting>
          </effect>
-      </VBox>
+      </Button>
+      <Label />
+      <Button fx:id="aboutButton1" mnemonicParsing="false" onAction="#onBtAbout" prefHeight="69.0" prefWidth="236.0" style="-fx-background-color: #3e3e3e;" text="About" textFill="WHITE">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.12" specularConstant="0.94" specularExponent="39.08" surfaceScale="2.69">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Button>
+      <Label />
    </children>
 </VBox>
