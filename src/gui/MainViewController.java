@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
@@ -25,9 +26,18 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	private MenuItem menuItemAbout;
+	
+	@FXML
+	private MenuItem menuItemHome;
+	
+	@FXML
+	private Button camisetasButton;
+	
+	@FXML
+	private Button aboutButton;
 
 	@FXML
-	public void onMenuItemDepartmentAction() {
+	public void onMenuItemCamisetasAction() {
 		loadView("/gui/CamisetasList.fxml", (CamisetasListController controller) -> {
 			controller.setCamisetasService(new CamisetasService());
 			controller.updateTableView();
@@ -39,10 +49,23 @@ public class MainViewController implements Initializable{
 		loadView("/gui/About.fxml", x -> {});		
 	}
 	
+	@FXML
+	public void onMenuItemHome() {
+		loadView("/gui/Home.fxml", x -> {});
+	}
+	
+	@FXML
+	public void onBtCamisetas() {
+		onMenuItemCamisetasAction();		
+	}
+	
+	@FXML
+	public void onBtAbout() {
+		onMenuItemAboutAction();
+	}
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
 	}
 	
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
