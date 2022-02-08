@@ -5,20 +5,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="238.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label text="About" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" left="20.0" top="10.0" />
-         </padding>
-      </Label>
-      <Label prefHeight="27.0" prefWidth="317.0" text="Gerenciador de estoque da Neat Camsietas by Gusta" textFill="WHITE">
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-      </Label>
-   </children>
+<VBox prefHeight="238.0" prefWidth="382.0"
+	xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<Label text="About" textFill="WHITE">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+			<padding>
+				<Insets bottom="10.0" left="20.0" top="10.0" />
+			</padding>
+		</Label>
+		<Label prefHeight="27.0" prefWidth="317.0"
+			text="Gerenciador de estoque da Neat Camsietas by Gusta"
+			textFill="WHITE">
+			<padding>
+				<Insets left="20.0" />
+			</padding>
+		</Label>
+	</children>
 </VBox>

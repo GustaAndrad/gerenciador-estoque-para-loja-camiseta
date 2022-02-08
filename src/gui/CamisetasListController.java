@@ -72,7 +72,10 @@ public class CamisetasListController implements Initializable, DataChangeListene
 
 	@FXML
 	private TableColumn<Camisetas, Camisetas> tableColumnRemove;
-
+	
+	@FXML
+	private TableColumn<Camisetas, Double> tableColumnLucroTotal;
+	
 	@FXML
 	private Button btNew;
 	
@@ -133,6 +136,7 @@ public class CamisetasListController implements Initializable, DataChangeListene
 		tableColumnValorTotal.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 		tableColumnCustoTotal.setCellValueFactory(new PropertyValueFactory<>("custoTotal"));
 		tableColumnLucroLiquido.setCellValueFactory(new PropertyValueFactory<>("lucroLiquido"));
+		//tableColumnLucroTotal.setCellValueFactory(new PropertyValueFactory<>("lucroTotal"));
 		Utils.formatTableColumnDouble(tableColumnPreco, 2);
 		Utils.formatTableColumnDouble(tableColumnPrecoCusto, 2);
 		Utils.formatTableColumnDouble(tableColumnValorTotal, 2);

@@ -1,48 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="409.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CamisetasListController">
-   <children>
-      <Label text="Estoque Neat Camisetas" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <padding>
-            <Insets left="5.0" top="5.0" />
-         </padding>
-      </Label>
-      <ToolBar prefHeight="40.0" prefWidth="200.0">
-        <items>
-          <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" text="Nova Camiseta" />
-            <Label prefHeight="18.0" prefWidth="626.0" />
-            <Button fx:id="btBack" mnemonicParsing="false" onAction="#onBtBack" prefHeight="26.0" prefWidth="74.0" text="Voltar">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-        </items>
-      </ToolBar>
-      <TableView fx:id="tableViewCamisetas" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="48.80004805326462" text="Id" />
-          <TableColumn fx:id="tableColumnName" prefWidth="101.59997940063477" text="Name" />
-            <TableColumn fx:id="tableColumnQuantidade" prefWidth="73.60000610351562" text="Quantidade" />
-            <TableColumn fx:id="tableColumnPrecoCusto" prefWidth="92.79998779296875" text="Preço de custo" />
-            <TableColumn fx:id="tableColumnPreco" prefWidth="98.4000244140625" text="Preço de venda" />
-            <TableColumn fx:id="tableColumnCustoTotal" prefWidth="104.79995727539062" text="Custo total" />
-            <TableColumn fx:id="tableColumnValorTotal" prefWidth="80.79998779296875" text="Lucro bruto" />
-            <TableColumn fx:id="tableColumnLucroLiquido" prefWidth="80.79998779296875" text="Lucro liquido" />
-            <TableColumn fx:id="tableColumnEdit" prefWidth="49.60003662109375" />
-            <TableColumn fx:id="tableColumnRemove" prefWidth="78.39996337890625" />
-        </columns>
-      </TableView>
-   </children>
+	<children>
+		<Label text="Estoque Neat Camisetas" textFill="WHITE">
+			<font>
+				<Font name="System Bold" size="14.0" />
+			</font>
+			<padding>
+				<Insets left="5.0" top="5.0" />
+			</padding>
+		</Label>
+		<ToolBar prefHeight="40.0" prefWidth="200.0">
+			<items>
+				<Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" prefHeight="16.0" prefWidth="105.0" style="-fx-background-color: #3e3e3e;" text="Nova Camiseta" textFill="WHITE">
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.03" light="$null" specularExponent="40.0" surfaceScale="1.86">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+				<Label prefHeight="18.0" prefWidth="614.0" />
+				<Button fx:id="btBack" mnemonicParsing="false" onAction="#onBtBack" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #3e3e3e;" text="Voltar" textFill="WHITE">
+					<opaqueInsets>
+						<Insets />
+					</opaqueInsets>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+				</Button>
+			</items>
+		</ToolBar>
+		<TableView fx:id="tableViewCamisetas" prefHeight="200.0" prefWidth="200.0">
+			<columns>
+				<TableColumn fx:id="tableColumnId" prefWidth="48.80004805326462" text="Id" />
+				<TableColumn fx:id="tableColumnName" prefWidth="101.59997940063477" text="Name" />
+				<TableColumn fx:id="tableColumnQuantidade" prefWidth="73.60000610351562" text="Quantidade" />
+				<TableColumn fx:id="tableColumnPrecoCusto" prefWidth="92.79998779296875" text="Preço de custo" />
+				<TableColumn fx:id="tableColumnPreco" prefWidth="98.4000244140625" text="Preço de venda" />
+				<TableColumn fx:id="tableColumnCustoTotal" prefWidth="104.79995727539062" text="Custo total" />
+				<TableColumn fx:id="tableColumnValorTotal" prefWidth="80.79998779296875" text="Lucro bruto" />
+				<TableColumn fx:id="tableColumnLucroLiquido" prefWidth="80.79998779296875" text="Lucro liquido" />
+				<TableColumn fx:id="tableColumnEdit" prefWidth="49.60003662109375" />
+				<TableColumn fx:id="tableColumnRemove" prefWidth="78.39996337890625" />
+			</columns>
+         <effect>
+            <Lighting diffuseConstant="1.51" specularConstant="0.96" specularExponent="40.0" surfaceScale="1.86">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+		</TableView>
+	</children>
 </VBox>

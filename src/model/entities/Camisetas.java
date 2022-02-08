@@ -87,7 +87,7 @@ public class Camisetas implements Serializable {
 	public double getLucroLiquido(double double2) {
 		return getValorTotal(double2) - getCustoTotal(double2);
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
